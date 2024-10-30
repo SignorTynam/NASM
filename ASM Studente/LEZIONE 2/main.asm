@@ -1,6 +1,5 @@
 section .data
     msg_equal db "I valori sono uguali", 0
-    msg_not_equal db "I valori sono diversi", 0
 
 section .text
     global _start
@@ -15,4 +14,8 @@ valori_uguali:
     mov eax, 4
     mov ebx, 1
     mov ecx, msg_equal
+    mov edx, 20
     int 0x80            ; Stampa "I valori sono uguali"
+
+    mov eax, 1
+    int 0x80
