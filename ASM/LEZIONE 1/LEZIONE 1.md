@@ -96,24 +96,12 @@ _start:
     ```assembly
       mov eax, 5 ; assegnare 5 a EAX
     ```
-- **Macro**: Codice riutilizzabile. Ad esempio:
-  
-    ```assembly
-      %macro display 0
-          mov eax, 4
-          mov ebx, 1
-          mov ecx, msg
-          mov edx, 13
-          int 0x80
-      %endmacro
-    ```
-
 ---
 
 
 ## 3. Primo Programma: "Hello, World!"
 
-Ecco un programma completo:
+Il seguente programma stampa ``Hello, World!`` sullo schermo dell'utente.
 ```assembly
 section .data
     msg db "Hello, World!", 0
@@ -130,7 +118,7 @@ _start:
     xor ebx, ebx        ; uscita
     int 0x80            ; syscall
 ```
-**Analisi dettagliata**:
+## **Analisi dettagliata**
 
 ### Sezione .data
 - **``section .data``**: Questa sezione è utilizzata per dichiarare le variabili statiche e i dati inizializzati.
@@ -165,24 +153,6 @@ _start:
 - **`int 0x80`**: 
   - Ancora una volta, eseguiamo una chiamata di interruzione per dire al sistema operativo di chiudere il programma utilizzando il codice di uscita fornito in ``EBX``.
 
-
-Ecco un programma completo:
-```assembly
-section .data
-    msg db "Hello, World!", 0
-
-section .text
-global _start
-_start:
-    mov eax, 4          ; syscall sys_write
-    mov ebx, 1          ; stdout
-    mov ecx, msg        ; messaggio
-    mov edx, 13         ; lunghezza
-    int 0x80            ; syscall
-    mov eax, 1          ; syscall sys_exit
-    xor ebx, ebx        ; uscita
-    int 0x80            ; syscall
-```
 **Analisi dettagliata**:
 - `mov eax, 4`: Imposta eax per scrivere.
 - `mov ebx, 1`: Usa ebx per scrivere in stdout.
