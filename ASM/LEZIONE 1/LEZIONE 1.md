@@ -1,4 +1,4 @@
-# Lezione 1: Introduzione a NASM (Netwide Assembler) - Appunti per il Professore
+# Lezione 1: Introduzione a NASM (Netwide Assembler)
 
 ## Obiettivi della lezione
 - Introdurre il linguaggio Assembly e NASM.
