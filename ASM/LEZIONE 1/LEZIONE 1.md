@@ -174,7 +174,36 @@ _start:
 ### 4.2 Operazioni Base
 - **Esercizio**:
   - **1**: Carica 10 in ``EAX``, somma 20.
+
+    ```assembly
+    section .txt
+    global _start
+
+    _start:
+        mov eax, 10
+        add eax, 20
+
+        mov eax, 1
+        xor ebx, ebx
+        int 0x80
+    ```
   - **2**: Scambia ``EAX`` con ``EBX``.
+    ```assembly
+    section .txt
+        global _start
+
+    _start:
+        mov eax, 10
+        mov ebx, 20
+
+        mov ecx, eax
+        mov eax, ebx
+        mov ebx, ecx
+
+        mov eax, 1
+        xor ebx, ebx
+        int 0x80
+      ```
 
 ---
 
