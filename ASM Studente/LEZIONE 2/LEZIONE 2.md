@@ -22,8 +22,7 @@ _start:
 _continua:
     ; Altro codice qui
 _end:
-    mov eax, 1
-    int 0x80
+    ; Fine del programma
 ```
 
 ## 2. Le istruzioni ``CMP`` e ``JMP``
@@ -51,8 +50,6 @@ _start:
 salta_qui:
     ; Il programma continua qui dopo il salto
     mov ebx, 2
-    mov eax, 1
-    int 0x80
 ```
 
 In questo esempio, l'istruzione ``JMP`` salta_qui porta l'esecuzione direttamente all’etichetta ``salta_qui``, saltando qualsiasi istruzione intermedia.
@@ -146,36 +143,34 @@ fine:
 **Esempio di Utilizzo di ``JZ`` e ``JNZ``**
 ```assembly
 section .data
-    msg_zero db "Risultato e zero", 0
-    msg_not_zero db "Risultato non e zero", 0
+    msg_zero db "Risultato e' zero", 0
+    msg_not_zero db "Risultato non e' zero", 0
 
 section .text
     global _start
 
 _start:
     mov eax, 10
-    sub eax, 11                 ; Esegui 10 - 10, che è zero
-    jz risultato_zero           ; Salta a risultato_zero se ZF è impostata
-    jnz risultato_non_zero
+    sub eax, 10         ; Esegui 10 - 10, che è zero
+    jz risultato_zero   ; Salta a risultato_zero se ZF è impostata
+    jnz risultato_non_zero ; Salta a risultato_non_zero se ZF è zero
 
 risultato_zero:
     mov eax, 4
     mov ebx, 1
     mov ecx, msg_zero
-    mov edx, 16
-    int 0x80
-    jmp exit
+    int 0x80            ; Stampa "Risultato e' zero"
+    jmp fine
 
 risultato_non_zero:
     mov eax, 4
     mov ebx, 1
     mov ecx, msg_not_zero
-    mov edx, 20
-    int 0x80
+    int 0x80            ; Stampa "Risultato non e' zero"
 
-exit:
+fine:
     mov eax, 1
-    int 0x80
+    int 0x80            ; Esci dal programma
 ```
 
 ### ``JG`` (Jump if Greater) e ``JL`` (Jump if Less)
@@ -349,6 +344,40 @@ Se il numero è dispari: "Il numero è dispari."
 ```
 Suggerimento
 Utilizza ``AND`` per verificare il bit meno significativo (1 per dispari e 0 per pari).
+#### Soluzione
+```nasm
+section .data
+    msg_even db "Il numero e' pari", 0
+    msg_odd db "Il numero e' dispari", 0
+
+section .text
+    global _start
+
+_start:
+    mov eax, 7              ; Sostituisci con il numero da verificare
+    and eax, 1              ; Verifica il bit meno significativo
+    jz pari                 ; Salta a "pari" se il numero è pari
+    jmp dispari             ; Altrimenti salta a "dispari"
+
+pari:
+    ; Codice per stampare "Il numero è pari"
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, msg_even
+    int 0x80
+    jmp fine
+
+dispari:
+    ; Codice per stampare "Il numero è dispari"
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, msg_odd
+    int 0x80
+
+fine:
+    mov eax, 1
+    int 0x80                ; Esci dal programma
+```
 
 ### Esercizio 2: Maggiore di 100?
 Scrivi un programma che controlli se un numero è maggiore di 100 e stampi un messaggio appropriato.
@@ -357,6 +386,40 @@ Esempio di Output
 ```
 Se numero > 100: "Numero maggiore di 100."
 Se numero ≤ 100: "Numero minore o uguale a 100."
+```
+#### Soluzione
+```nasm
+section .data
+    msg_greater db "Numero maggiore di 100", 0
+    msg_not_greater db "Numero minore o uguale a 100", 0
+
+section .text
+    global _start
+
+_start:
+    mov eax, 75             ; Sostituisci con il numero da verificare
+    cmp eax, 100            ; Confronta EAX con 100
+    jg maggiore             ; Salta a maggiore se EAX > 100
+    jmp non_maggiore        ; Altrimenti salta a non_maggiore
+
+maggiore:
+    ; Codice per stampare "Numero maggiore di 100"
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, msg_greater
+    int 0x80
+    jmp fine
+
+non_maggiore:
+    ; Codice per stampare "Numero minore o uguale a 100"
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, msg_not_greater
+    int 0x80
+
+fine:
+    mov eax, 1
+    int 0x80                ; Esci dal programma
 ```
 
 ### Esercizio 3: Confronto tra Due Numeri
@@ -369,6 +432,49 @@ Se numero1 < numero2: "Numero2 è maggiore di Numero1."
 Se numero1 == numero2: "I numeri sono uguali."
 ```
 
+#### Soluzione
+```nasm
+section .data
+    msg_num1_greater db "Numero1 e' maggiore di Numero2", 0
+    msg_num2_greater db "Numero2 e' maggiore di Numero1", 0
+    msg_equal db "I numeri sono uguali", 0
+
+section .text
+    global _start
+
+_start:
+    mov eax, 30             ; Sostituisci con il valore di Numero1
+    mov ebx, 25             ; Sostituisci con il valore di Numero2
+    cmp eax, ebx            ; Confronta EAX e EBX
+    je uguali               ; Salta a uguali se sono uguali
+    jg num1_maggiore        ; Salta a num1_maggiore se Numero1 > Numero2
+    jl num2_maggiore        ; Salta a num2_maggiore se Numero1 < Numero2
+
+num1_maggiore:
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, msg_num1_greater
+    int 0x80
+    jmp fine
+
+num2_maggiore:
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, msg_num2_greater
+    int 0x80
+    jmp fine
+
+uguali:
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, msg_equal
+    int 0x80
+
+fine:
+    mov eax, 1
+    int 0x80                ; Esci dal programma
+```
+
 ### Esercizio 4: Segno Positivo o Negativo
 Scrivi un programma che verifichi se un numero è positivo, negativo o zero.
 
@@ -379,10 +485,106 @@ Se numero < 0: "Il numero è negativo."
 Se numero == 0: "Il numero è zero."
 ```
 
+#### Soluzione
+```nasm
+section .data
+    msg_positive db "Il numero e' positivo", 0
+    msg_negative db "Il numero e' negativo", 0
+    msg_zero db "Il numero e' zero", 0
+
+section .text
+    global _start
+
+_start:
+    mov eax, -5             ; Sostituisci con il numero da verificare
+    cmp eax, 0              ; Confronta EAX con zero
+    je numero_zero          ; Salta a numero_zero se EAX == 0
+    jg numero_positivo      ; Salta a numero_positivo se EAX > 0
+    jl numero_negativo      ; Salta a numero_negativo se EAX < 0
+
+numero_positivo:
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, msg_positive
+    int 0x80
+    jmp fine
+
+numero_negativo:
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, msg_negative
+    int 0x80
+    jmp fine
+
+numero_zero:
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, msg_zero
+    int 0x80
+
+fine:
+    mov eax, 1
+    int 0x80                ; Esci dal programma
+```
+
 ### Esercizio 5: Verifica se un numero è multiplo di 4
 Scrivi un programma che verifichi se un numero è un multiplo di 4 utilizzando ``AND``.
 
 - **Suggerimento:** Verifica se i due bit meno significativi sono pari a zero.
 
+#### Soluzione
+
+```nasm
+section .data
+    msg_multiplo4 db "Il numero è multiplo di 4", 0
+    msg_non_multiplo4 db "Il numero non è multiplo di 4", 0
+
+section .text
+    global _start
+
+_start:
+    mov eax, 8              ; Inserisce un numero
+    and eax, 3              ; Verifica se gli ultimi 2 bit sono 0
+    jz multiplo4            ; Salta a multiplo4 se eax & 3 == 0
+    jmp non_multiplo4       ; Altrimenti salta a non_multiplo4
+
+multiplo4:
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, msg_multiplo4
+    int 0x80
+    jmp fine
+
+non_multiplo4:
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, msg_non_multiplo4
+    int 0x80
+
+fine:
+    mov eax, 1
+    int 0x80                ; Esce dal programma
+```
+
 ### Esercizio 6: Imposta un bit specifico usando ``OR``
 Scrivi un programma che imposti il bit alla posizione 2 di un numero.
+
+#### Soluzione
+```nasm
+section .data
+    msg_bit_set db "Il bit è stato impostato", 0
+
+section .text
+    global _start
+
+_start:
+    mov eax, 4              ; EAX è 00000100 in binario
+    or eax, 2               ; Esegue OR con 00000010
+    ; Ora EAX è 00000110 in binario, il bit 2 è impostato
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, msg_bit_set
+    int 0x80                ; Stampa "Il bit è stato impostato"
+    mov eax, 1
+    int 0x80                ; Esce dal programma
+```
