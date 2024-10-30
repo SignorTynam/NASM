@@ -1,32 +1,18 @@
 section .data
-    msg_pari db "Il numero e' pari", 0
-    msg_dispari db "Il numero e' dispari", 0
+    msg_equal db "I valori sono uguali", 0
+    msg_not_equal db "I valori sono diversi", 0
 
 section .text
     global _start
 
 _start:
-    mov eax, 8
-    and eax, 1
-    jz pari
-    jnz dispari
-    
+    mov eax, 5
+    mov ebx, 5
+    cmp eax, ebx        ; Confronta EAX e EBX
+    je valori_uguali    ; Salta a valori_uguali se ZF è impostata
 
-pari:
+valori_uguali:
     mov eax, 4
     mov ebx, 1
-    mov ecx, msg_pari
-    mov edx, 17
-    int 0x80
-    jmp exit
-
-dispari:
-    mov eax, 4
-    mov ebx, 1
-    mov ecx, msg_dispari
-    mov edx, 20
-    int 0x80
-
-exit:
-    mov eax, 1
-    int 0x80
+    mov ecx, msg_equal
+    int 0x80            ; Stampa "I valori sono uguali"

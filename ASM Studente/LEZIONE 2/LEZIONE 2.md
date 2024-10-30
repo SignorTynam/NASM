@@ -22,7 +22,8 @@ _start:
 _continua:
     ; Altro codice qui
 _end:
-    ; Fine del programma
+    mov eax, 1
+    int 0x80
 ```
 
 ## 2. Le istruzioni ``CMP`` e ``JMP``
@@ -50,6 +51,8 @@ _start:
 salta_qui:
     ; Il programma continua qui dopo il salto
     mov ebx, 2
+    mov eax, 1
+    int 0x80
 ```
 
 In questo esempio, l'istruzione ``JMP`` salta_qui porta l'esecuzione direttamente all’etichetta ``salta_qui``, saltando qualsiasi istruzione intermedia.
