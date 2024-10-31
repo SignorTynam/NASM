@@ -7,7 +7,9 @@
 - Introdurre i registri principali e le operazioni base di manipolazione dati.
 - Offrire esercizi pratici per consolidare le competenze di base.
 
----
+## Lezione registrata
+> Lezione registrata: [Lezione 1 - Introduzione a NASM (Netwide Assembler)
+](https://www.youtube.com/watch?v=l-wZCaQiGiY&list=PLYO89vdz7M66gHXwksj2oCRjLg9pdt_Ze&index=1)
 
 ## 1. Introduzione a NASM e all'Assembly
 
@@ -208,7 +210,7 @@ _start:
 ---
 
 
-## 5. Esercizi Guidati
+## 5. Esercizi
 1. **Somma di due numeri**: Scrivere un programma che somma due numeri.
 2. **Swap**: Programma che scambia i valori tra EAX e EBX.
 3. **Prodotto di due numeri**: Scrivere un programma che calcola il prodotto di due numeri.
