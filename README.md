@@ -1,19 +1,33 @@
-# Eseguire NASM in Visual Studio Code (Architettura a 32 Bit)
+# Corsi di Netwide Assembly (NASM)
+
+## Le lezioni ottenute
+- **Lezione 1:** Introduzione a NASM (Ottenuta il *29 Ottobre 2024*)
+- **Lezione 2:** I salti condizionali in NASM (Ottenuta il *30 Ottobre 2024*)
+- **Lezione 3:** I cicli in NASM (Ottenuta il *31 Ottobre 2024*)
+
+## Informazioni importanti
+
+1. Il link della pagina Git: [Pagina Git](https://github.com/SignorTynam/NASM/tree/main)
+2. Il link della playlist su YouTube: [Il linguaggio Assembly (NASM) - YouTube](https://www.youtube.com/playlist?list=PLYO89vdz7M66gHXwksj2oCRjLg9pdt_Ze)
+3. Il link della riunione Microsoft Teams: [Microsoft Teams Meeting](https://teams.microsoft.com/l/meetup-join/19:meeting_MzY3NTE3NTctOTQxNC00NGQ3LWIzYzQtODVmOWEyMjJhOWEy@thread.v2/0?context=%7B%22Tid%22:%22e99647dc-1b08-454a-bf8c-699181b389ab%22,%22Oid%22:%22cb57021c-611d-4909-a520-d4db3584864b%22%7D)
+
+
+## Eseguire NASM in Visual Studio Code (Architettura a 32 Bit)
 
 Per eseguire NASM (Netwide Assembler) su un’architettura a 32 bit in Visual Studio Code, segui questi passaggi:
 
-## Passo 1: Installare NASM
+### Passo 1: Installare NASM
 1. **Scarica NASM** dal sito ufficiale: [NASM Download](https://www.nasm.us/).
 2. **Installa NASM** in base al tuo sistema operativo:
    - **Windows**: Scarica il file `.exe` e aggiungi NASM al tuo PATH.
    - **Linux**: Utilizza il gestore di pacchetti, ad esempio `sudo apt install nasm`.
    - **macOS**: Installa con Homebrew: `brew install nasm`.
 
-## Passo 2: Installare Visual Studio Code e l'Estensione Assembly
+### Passo 2: Installare Visual Studio Code e l'Estensione Assembly
 1. Scarica **Visual Studio Code** se non lo hai già fatto da [Visual Studio Code](https://code.visualstudio.com/).
 2. Apri VS Code, vai su **Estensioni** e installa **x86 and x86_64 Assembly** di Daniel Imms per il supporto alla sintassi NASM.
 
-## Passo 3: Configurare il File NASM
+### Passo 3: Configurare il File NASM
 1. **Crea un nuovo file** in VS Code e salvalo con estensione `.asm`, ad esempio `hello.asm`.
 2. Scrivi il tuo codice NASM nel file. Ecco un semplice esempio per un sistema a 32 bit:
 
@@ -37,7 +51,7 @@ Per eseguire NASM (Netwide Assembler) su un’architettura a 32 bit in Visual St
         int 0x80                     ; chiamata al kernel per terminare
     ```
 
-## Passo 4: Compilare e Collegare il File NASM
+### Passo 4: Compilare e Collegare il File NASM
 1. Apri il **terminale** in VS Code selezionando **View > Terminal** o con la scorciatoia **Ctrl + `**.
 2. **Compila** il file NASM eseguendo:
     ```bash
@@ -51,36 +65,12 @@ Per eseguire NASM (Netwide Assembler) su un’architettura a 32 bit in Visual St
     ```
    - Il flag `-m elf_i386` specifica un collegamento per architetture a 32 bit, creando un eseguibile chiamato `hello`.
 
-## Passo 5: Eseguire l'Eseguibile
+### Passo 5: Eseguire l'Eseguibile
 Esegui l'eseguibile inserendo:
    ```bash
    ./hello
    ```
-## Passo 6: Esaminare i registri della CPU
-Supponiamo di avere il seguente codice:
-```assembly
-section .data
-    num1 db 5
-    num2 db 10
-    result db 0
-
-section .text
-global _start
-
-_start:
-    ; Carica il valore di num1 in AL
-    mov al, [num1]
-    ; Aggiungi il valore di num2 a AL
-    add al, [num2]
-    ; Memorizza il risultato in memoria all'etichetta result
-    mov [result], al
-
-    ; Esci dal programma
-    mov eax, 1         ; syscall: exit
-    xor ebx, ebx       ; stato: 0
-    int 0x80           ; chiama il kernel
-```
-
+## Visualizzare i registri in Visual Studio Code (Ubuntu)
 ### Installa gli Strumenti Necessari
 Se non l'hai già fatto, assicurati di avere installato NASM e GDB:
 ```bash

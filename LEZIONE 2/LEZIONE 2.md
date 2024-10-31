@@ -1,7 +1,7 @@
-# Lezione 2: I salti condizionati in NASM
+# Lezione 2: I salti condizionali in NASM
 
 ## Lezione registrata
-> Lezione registrata: [Lezione 2 - I salti condizionati](https://www.youtube.com/watch?v=mvTalLP_nVc&list=PLYO89vdz7M66gHXwksj2oCRjLg9pdt_Ze&index=2)
+> Lezione registrata: [Lezione 2 - I salti condizionaii](https://www.youtube.com/watch?v=mvTalLP_nVc&list=PLYO89vdz7M66gHXwksj2oCRjLg9pdt_Ze&index=2)
 
 ## Introduzione
 

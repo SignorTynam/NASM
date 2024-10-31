@@ -1,4 +1,4 @@
-# Lezione 3: I Cicli in NASM
+# Lezione 3: I cicli in NASM
 ## Obiettivo della Lezione
 - Imparare a utilizzare diversi tipi di cicli in NASM per creare sezioni di codice che si ripetono, sfruttando istruzioni di salto, confronti, contatori e istruzioni specifiche per loop (``LOOP``, ``TEST``, ``JMP``). 
 - Esploreremo anche come costruire manualmente vari tipi di cicli (e.g., ``while``, ``for``, ``do-while``), approfondendo l'uso delle istruzioni NASM fondamentali per il controllo del flusso.
@@ -6,7 +6,7 @@
 ## Prerequisiti
 Conoscenza di:
 - Registri (``EAX``, `EBX`, `ECX`, etc.)
-- Istruzioni di salto (`JMP`, `JE`, `JNE`, etc.)
+- Istruzioni di salto (`JMP`, `JE`, `JNE`, ecc.)
 - Confronti con `CMP` e `TEST`
 - Contatori e gestione di incrementi/decrementi
 
