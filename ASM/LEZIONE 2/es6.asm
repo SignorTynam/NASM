@@ -1,5 +1,5 @@
 section .data
-    msg_bit_set db "Il bit è stato impostato", 0
+    msg_bit_set db "Il bit e' stato impostato", 0
 
 section .text
     global _start
@@ -11,6 +11,7 @@ _start:
     mov eax, 4
     mov ebx, 1
     mov ecx, msg_bit_set
+    mov edx, 25
     int 0x80                ; Stampa "Il bit è stato impostato"
     mov eax, 1
     int 0x80                ; Esce dal programma

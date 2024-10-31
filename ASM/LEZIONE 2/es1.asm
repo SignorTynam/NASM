@@ -6,7 +6,7 @@ section .text
     global _start
 
 _start:
-    mov eax, 7              ; Sostituisci con il numero da verificare
+    mov eax, 8              ; Sostituisci con il numero da verificare
     and eax, 1              ; Verifica il bit meno significativo
     jz pari                 ; Salta a "pari" se il numero è pari
     jmp dispari             ; Altrimenti salta a "dispari"
@@ -16,6 +16,7 @@ pari:
     mov eax, 4
     mov ebx, 1
     mov ecx, msg_even
+    mov edx, 17
     int 0x80
     jmp fine
 
@@ -24,6 +25,7 @@ dispari:
     mov eax, 4
     mov ebx, 1
     mov ecx, msg_odd
+    mov edx, 20
     int 0x80
 
 fine:

@@ -7,7 +7,7 @@ section .text
     global _start
 
 _start:
-    mov eax, -5             ; Sostituisci con il numero da verificare
+    mov eax, 0              ; Sostituisci con il numero da verificare
     cmp eax, 0              ; Confronta EAX con zero
     je numero_zero          ; Salta a numero_zero se EAX == 0
     jg numero_positivo      ; Salta a numero_positivo se EAX > 0
@@ -17,6 +17,7 @@ numero_positivo:
     mov eax, 4
     mov ebx, 1
     mov ecx, msg_positive
+    mov edx, 21
     int 0x80
     jmp fine
 
@@ -24,6 +25,7 @@ numero_negativo:
     mov eax, 4
     mov ebx, 1
     mov ecx, msg_negative
+    mov edx, 21
     int 0x80
     jmp fine
 
@@ -31,6 +33,7 @@ numero_zero:
     mov eax, 4
     mov ebx, 1
     mov ecx, msg_zero
+    mov edx, 17
     int 0x80
 
 fine:

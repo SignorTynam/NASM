@@ -6,7 +6,7 @@ section .text
     global _start
 
 _start:
-    mov eax, 75             ; Sostituisci con il numero da verificare
+    mov eax, 111             ; Sostituisci con il numero da verificare
     cmp eax, 100            ; Confronta EAX con 100
     jg maggiore             ; Salta a maggiore se EAX > 100
     jmp non_maggiore        ; Altrimenti salta a non_maggiore
@@ -16,6 +16,7 @@ maggiore:
     mov eax, 4
     mov ebx, 1
     mov ecx, msg_greater
+    mov edx, 22
     int 0x80
     jmp fine
 
@@ -24,6 +25,7 @@ non_maggiore:
     mov eax, 4
     mov ebx, 1
     mov ecx, msg_not_greater
+    mov edx, 28
     int 0x80
 
 fine:
