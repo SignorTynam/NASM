@@ -42,9 +42,6 @@ Il ciclo ``while`` ripete un blocco di codice finché una condizione è vera. Ec
 
 ### Esempio 1: Ciclo ``while`` con `cmp` e `jmp`
 ```assembly
-section .data
-    contatore db 10          ; Valore iniziale del contatore
-
 section .text
     global _start
 
@@ -105,7 +102,7 @@ section .text
     global _start
 
 _start:
-    mov ecx, 0               ; Contatore iniziale (i = 0)
+    xor eax, eax             ; Contatore iniziale (i = 0)
 
 ciclo_for:
     cmp ecx, [limite]        ; Confronta ecx con limite
@@ -125,13 +122,13 @@ fine_ciclo_for:
 Il ciclo ``do-while`` esegue il corpo almeno una volta. Lo simuliamo saltando direttamente al corpo la prima volta.
 ```assembly
 section .data
-    contatore db 3           ; Numero di iterazioni
+    contatore dd 3           ; Numero di iterazioni
 
 section .text
     global _start
 
 _start:
-    mov eax, contatore       ; Carica il contatore
+    mov eax, [contatore]       ; Carica il contatore
 
 ciclo_do_while:
     ; Corpo del ciclo
@@ -151,13 +148,13 @@ NASM include un'istruzione specifica per i cicli chiamata ``LOOP``, che utilizza
 ### Esempio: Ciclo ``LOOP``
 ```assembly
 section .data
-    contatore db 5           ; Numero di iterazioni
+    contatore dd 5           ; Numero di iterazioni
 
 section .text
     global _start
 
 _start:
-    mov ecx, contatore       ; Carica `contatore` in `ecx`
+    mov ecx, [contatore]       ; Carica `contatore` in `ecx`
 
 ciclo_loop:
     ; Corpo del ciclo
