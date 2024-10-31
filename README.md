@@ -1,4 +1,4 @@
-# Corsi di Netwide Assembly (NASM)
+# Corso di Netwide Assembly (NASM)
 
 ## Le lezioni ottenute
 - **Lezione 1:** Introduzione a NASM (Ottenuta il *29 Ottobre 2024*)
