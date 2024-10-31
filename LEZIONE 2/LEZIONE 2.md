@@ -339,22 +339,22 @@ _start:
 
 ## Esercizi interattivi
 
-### Esercizio 1: Controllo Pari o Dispari
+### #1: Controllo Pari o Dispari
 Scrivi un programma che verifichi se un numero è pari o dispari. Usa ``CMP`` e un salto condizionale per decidere quale messaggio stampare. 
 
 **Suggerimento:** Utilizza ``AND`` per verificare il bit meno significativo (1 per dispari e 0 per pari).
 
-### Esercizio 2: Maggiore di 100?
+### #2: Maggiore di 100?
 Scrivi un programma che controlli se un numero è maggiore di 100 e stampi un messaggio appropriato.
 
-### Esercizio 3: Confronto tra Due Numeri
+### #3: Confronto tra Due Numeri
 Scrivi un programma che confronti due numeri (``numero1`` e ``numero2``) e stampi quale dei due è maggiore o se sono uguali.
 
-### Esercizio 4: Segno Positivo o Negativo
+### #4: Segno Positivo o Negativo
 Scrivi un programma che verifichi se un numero è positivo, negativo o zero.
 
-### Esercizio 5: Verifica se un numero è multiplo di 4
+### #5: Verifica se un numero è multiplo di 4
 Scrivi un programma che verifichi se un numero è un multiplo di 4 utilizzando ``AND``. **Suggerimento:** Verifica se i due bit meno significativi sono pari a zero.
 
-### Esercizio 6: Imposta un bit specifico usando ``OR``
+### #6: Imposta un bit specifico usando ``OR``
 Scrivi un programma che imposti il bit alla posizione 2 di un numero.

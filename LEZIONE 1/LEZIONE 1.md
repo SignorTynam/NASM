@@ -211,9 +211,20 @@ _start:
 
 
 ## 5. Esercizi
-1. **Somma di due numeri**: Scrivere un programma che somma due numeri.
-2. **Swap**: Programma che scambia i valori tra EAX e EBX.
-3. **Prodotto di due numeri**: Scrivere un programma che calcola il prodotto di due numeri.
-4. **Divisione**: Scrivere un programma che divide due numeri e stampa il quoziente.
-5. **Incremento**: Scrivere un programma che incrementa un numero dato di 5.
-6. **Stampa un numero**: Scrivere un programma che stampa un numero intero dato.
+### #1 Somma di due numeri
+Scrivere un programma che somma due numeri.
+
+### #2 Swap:
+Scrivere un programma che scambia i valori tra EAX e EBX.
+
+### #3 Prodotto di due numeri
+Scrivere un programma che calcola il prodotto di due numeri.
+
+### #4 Divisione
+Scrivere un programma che divide due numeri.
+
+### #5 Incremento
+Scrivere un programma che incrementa un numero dato di 5.
+
+### #6 Stampa un numero
+Scrivere un programma che stampa un numero intero dato.

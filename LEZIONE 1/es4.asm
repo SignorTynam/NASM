@@ -11,6 +11,7 @@ _start:
     xor ah, ah           ; Azzerare AH per divisione
     div bl               ; Divide AL per BL (AL = AL / BL)
     mov [result], al     ; Salva il quoziente
+    
     ; Termina il programma
     mov eax, 1
     xor ebx, ebx
