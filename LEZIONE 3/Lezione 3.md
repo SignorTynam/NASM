@@ -11,7 +11,7 @@ Conoscenza di:
 - Contatori e gestione di incrementi/decrementi
 
 ## Lezione registrata
-> Lezione registrata: [Lezione 3 - I ciclo in NASM]()
+> Lezione registrata: ([Lezione 3 - I cicli in NASM](https://www.youtube.com/watch?v=C-_b6Z3zcCw))
 
 ## 1. Introduzione ai Cicli in Assembly
 I cicli consentono di **ripetere** una sequenza di istruzioni **fino a quando una certa condizione è vera** o per un numero di volte definito. A differenza dei linguaggi di alto livello, **NASM non dispone di costrutti specifici per i cicli** (`while`, `for`, `do-while`). Pertanto, dobbiamo utilizzare salti condizionali e confronti per creare cicli.
