@@ -63,7 +63,7 @@ fine_ciclo:
 ```
 
 ### Esempio 2: Ciclo `while` con `test`
-```
+```assembly
 section .data
     flag db 1                ; Flag per il ciclo
 
@@ -93,7 +93,7 @@ In questo esempio, `test al, al` è una comoda alternativa a `cmp al, 0` per con
 Un ciclo ``for`` è un ciclo con una condizione iniziale, un ``test`` e un'incremento. Simuliamolo in NASM con ``ECX`` come contatore.
 
 ### Esempio: Ciclo ``for`` con contatore (`ECX`)
-```
+```assembly
 section .data
     limite db 5              ; Numero di iterazioni
 
@@ -145,7 +145,7 @@ fine_ciclo_do_while:
 NASM include un'istruzione specifica per i cicli chiamata ``LOOP``, che utilizza il registro ``ECX`` come contatore. ``LOOP`` decrementa ecx e salta alla label indicata finché ecx non diventa zero.
 
 ### Esempio: Ciclo ``LOOP``
-```
+```assembly
 section .data
     contatore db 5           ; Numero di iterazioni
 
